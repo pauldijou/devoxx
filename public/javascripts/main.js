@@ -1,5 +1,5 @@
 var app = angular.module("app", ["ngResource"])
-  .constant('apiUrl', '/api/v1')
+  .constant('apiUrl', 'http://devoxx-pdi.rhcloud.com/api/v1')
   .constant("Events", {
     CONFERENCE_ADDED: "conferenceAdded"
   })
