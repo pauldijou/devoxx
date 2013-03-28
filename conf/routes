@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+ 
+# Home page
+GET     /                                 controllers.Application.main(all = "none")
+ 
+# Views
+GET     /views/index                      controllers.Application.index
+ 
+# API
+GET     /api/v1/conferences               controllers.Conferences.all
+GET     /api/v1/conferences/:id           controllers.Conferences.get(id: String)
+POST    /api/v1/conferences               controllers.Conferences.create()
+DELETE  /api/v1/conferences/:id           controllers.Conferences.delete(id: String)
+PUT     /api/v1/conferences/:id/up        controllers.Conferences.up(id: String)
+PUT     /api/v1/conferences/:id/down      controllers.Conferences.down(id: String)
+ 
+# Assets
+GET     /assets/*file                     controllers.Assets.at(path="/public", file)
+ 
+# Fallback
+GET     /*all                             controllers.Application.main(all)

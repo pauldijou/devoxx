@@ -1,0 +1,90 @@
+@()
+
+@import play.api.Play
+@import play.api.Play.current
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" data-ng-app="app" data-ng-controller="AppCtrl"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" data-ng-app="app" data-ng-controller="AppCtrl"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" data-ng-app="app" data-ng-controller="AppCtrl"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" data-ng-app="app" data-ng-controller="AppCtrl">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="fragment" content="!" />
+
+  <title>Devoxx</title>
+  <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+  <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="container">
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="navbar-brand" href="#">Zenexity - DevoxxFR</a>
+
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+        <ul class="nav">
+          <li>
+            <a data-target="#modalAddConference" data-toggle="modal">Add conference</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div data-ng-view="view"></div>
+  </div>
+
+  <form class="form-horizontal" data-ng-submit="addConference()">
+    <div id="modalAddConference" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add conference</h4>
+          </div>
+          <div class="modal-body">
+              <div class="control-group">
+                <label class="control-label" for="addConfName">Name</label>
+                <div class="controls">
+                  <input type="text" id="addConfName" placeholder="What was the title?" data-ng-model="addConfForm.name">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="addConfSpeaker">Speaker</label>
+                <div class="controls">
+                  <input type="text" id="addConfSpeaker" placeholder="Who was talking?" data-ng-model="addConfForm.speaker">
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" data-ng-click="resetConference()">Close</a>
+            <button type="submit" href="#" class="btn btn-primary">Add</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script src="@routes.Assets.at("javascripts/vendors/jquery.min.js")"></script>
+  <script src="@routes.Assets.at("javascripts/vendors/angular.min.js")"></script>
+  <script src="@routes.Assets.at("javascripts/vendors/angular-resource.min.js")"></script>
+  <script src="@routes.Assets.at("javascripts/vendors/lodash.min.js")"></script>
+  <script src="@routes.Assets.at("javascripts/vendors/bootstrap.min.js")"></script>
+  <script src="@routes.Assets.at("javascripts/main.js")"></script>
+
+</body>
+</html>

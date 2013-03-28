@@ -1,0 +1,18 @@
+@()
+
+<div class="jumbotron">
+  <h1>Rate your conf!</h1>
+  <p>There is no control, no restriction, you can vote as many times as you want, but we trust you! So please, don't cheat too much.</p>
+</div>
+<ul class="list-unstyled conferences">
+  <li data-ng-repeat="conf in data.conferences | orderBy:'-note':false">
+    <span class="label" data-ng-class="{true: 'label-success', false: 'label-danger'}[conf.note > 0]">{{conf.note}}</span>
+
+    <span class="name">{{conf.name}}</span>
+    <span class="speaker"> (by {{conf.speaker}})</span>
+
+    <button type="button" class="btn" data-ng-click="up(conf.id)">+ Awesome!</button>
+    <button type="button" class="btn" data-ng-click="down(conf.id)">- Not so good...</button>
+
+  </li>
+</ul>
