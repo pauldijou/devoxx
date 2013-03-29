@@ -1,9 +1,15 @@
 @()
-
 <div class="jumbotron">
   <h1>Rate your conf!</h1>
   <p>There is no control, no restriction, you can vote as many times as you want, but we trust you! So please, don't cheat too much.</p>
-  <a href="http://devoxx-pdi.rhcloud.com">http://devoxx-pdi.rhcloud.com</a>
+  <p class="link">
+    <i class=" icon-dashboard icon-2x"></i>
+    <a href="http://devoxx-pdi.rhcloud.com">http://devoxx-pdi.rhcloud.com</a>
+  </p>
+  <p class="link">
+    <i class=" icon-github icon-2x"></i>
+    <a href="https://github.com/pauldijou/devoxx">https://github.com/pauldijou/devoxx</a>
+  </p>
 </div>
 <ul class="list-unstyled conferences">
   <li data-ng-repeat="conf in data.conferences | orderBy:'-note':false">
@@ -12,8 +18,8 @@
     <span class="name">{{conf.name}}</span>
     <span class="speaker"> (by {{conf.speaker}})</span>
 
-    <button type="button" class="btn" data-ng-click="up(conf.id)">+ Awesome!</button>
-    <button type="button" class="btn" data-ng-click="down(conf.id)">- Not so good...</button>
+    <button type="button" class="btn" data-ng-click="up(conf.id)"><i class="icon-plus"></i> Awesome!</button>
+    <button type="button" class="btn" data-ng-click="down(conf.id)"><i class="icon-minus"></i> Not so good...</button>
 
   </li>
 </ul>

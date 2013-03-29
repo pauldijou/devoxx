@@ -1,4 +1,7 @@
 @import "bootstrap/bootstrap";
+@import "fontawesome/font-awesome";
+
+@FontAwesomePath:   "/assets/images/font";
 
 a {
   cursor: pointer !important;
@@ -6,10 +9,17 @@ a {
 
 .jumbotron {
   margin-top: 20px;
-  a {
-    display: block;
+
+  p.link {
     text-align: center;
-    font-size: 40px;
+
+    i {
+      margin-right: 15px;
+    }
+
+    a {
+      font-size: 40px;
+    }
   }
 }
 
