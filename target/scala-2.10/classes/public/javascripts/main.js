@@ -1,4 +1,4 @@
-var app = angular.module("app", ["ngResource"])
+var app = angular.module("app", ["ngResource", "ui.bootstrap"])
   .constant('apiUrl', '/api/v1')
   .constant("Events", {
     CONFERENCE_ADDED: "conferenceAdded"
@@ -11,10 +11,10 @@ var app = angular.module("app", ["ngResource"])
       })
       .otherwise({
         redirectTo: '/'
-      })
+      });
   }])
   .config(['$locationProvider', function ($locationProvider) {
-    $locationProvider.html5Mode(true)
+    $locationProvider.html5Mode(true);
   }]);
 
 app.controller("AppCtrl", ["$scope", "Events", "Conferences", function ($scope, Events, Conferences) {
@@ -27,6 +27,10 @@ app.controller("AppCtrl", ["$scope", "Events", "Conferences", function ($scope, 
   $scope.addConference = function () {
     Conferences.save($scope.addConfForm, function () {
       $("#modalAddConference").modal("hide");
+      $scope.addConfForm = {
+        name: "",
+        speaker: ""
+      };
       $scope.$broadcast(Events.CONFERENCE_ADDED);
     });
   };
@@ -42,8 +46,16 @@ app.controller("AppCtrl", ["$scope", "Events", "Conferences", function ($scope, 
 
 app.controller("IndexCtrl", ["$scope", "Events", "Conferences", function ($scope, Events, Conferences) {
   $scope.data = {
-    conferences: []
+    conferences: [],
+    search: {}
   };
+
+  $scope.$watch("data.conferences", function (newValue, oldValue) {
+    console.log(newValue);
+    console.log(oldValue);
+    console.log($("[data-toggle=tooltip]").length);
+    //$("[data-toggle=tooltip]").tooltip();
+  });
 
   updateConferences();
 
@@ -65,8 +77,8 @@ app.controller("IndexCtrl", ["$scope", "Events", "Conferences", function ($scope
 
   function updateConferences() {
     Conferences.query({}, function (confs) {
-    $scope.data.conferences = confs;
-  });
+      $scope.data.conferences = confs;
+    });
   };
 }]);
 

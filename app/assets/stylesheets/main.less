@@ -18,7 +18,7 @@ a {
     }
 
     a {
-      font-size: 40px;
+      font-size: 30px;
     }
   }
 }
@@ -27,25 +27,68 @@ a {
   max-width: none;
 }
 
-ul.conferences li {
-  margin: 10px 0px;
+.row-search {
+  div {
+    margin: 10px 20px;
+  }
+}
 
-  .label {
-    font-size: 20px;
+.conferences {
+  margin: 0px 20px;
+
+  ul {
+    margin: 0px;
+
+    li {
+      margin: 10px 0px;
+
+      .label {
+        font-size: 20px;
+      }
+
+      .label-success, .label-danger {
+        display: inline-block;
+        width: 75px;
+      }
+
+      .name, .speaker {
+        font-size: 18px;
+        line-height: 20px;
+        vertical-align: middle;
+      }
+
+      .name {
+        font-weight: bold;
+        margin-left: 20px;
+      }
+
+      .speaker {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.tooltip {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .row-search {
+    div {
+      margin: 0px;
+    }
   }
 
-  .name, .speaker {
-    font-size: 18px;
-    line-height: 20px;
-    vertical-align: middle;
+  .conferences {
+    margin: 0px;
   }
+}
 
-  .name {
-    font-weight: bold;
-    margin-left: 20px;
-  }
-
-  .speaker {
-    margin-right: 20px;
+@media screen and (min-width: 992px) {
+  .jumbotron {
+    p.link a {
+      font-size: 40px;
+    }
   }
 }

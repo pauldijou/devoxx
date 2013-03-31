@@ -952,9 +952,13 @@ ul.icons{list-style-type:none;text-indent:-0.75em;}ul.icons li [class^="icon-"],
 .icon-folder-open-alt:before{content:"\f115";}
 a{cursor:pointer !important;}
 .jumbotron{margin-top:20px;}.jumbotron p.link{text-align:center;}.jumbotron p.link i{margin-right:15px;}
-.jumbotron p.link a{font-size:40px;}
+.jumbotron p.link a{font-size:30px;}
 .navbar-brand{max-width:none;}
-ul.conferences li{margin:10px 0px;}ul.conferences li .label{font-size:20px;}
-ul.conferences li .name,ul.conferences li .speaker{font-size:18px;line-height:20px;vertical-align:middle;}
-ul.conferences li .name{font-weight:bold;margin-left:20px;}
-ul.conferences li .speaker{margin-right:20px;}
+.row-search div{margin:10px 20px;}
+.conferences{margin:0px 20px;}.conferences ul{margin:0px;}.conferences ul li{margin:10px 0px;}.conferences ul li .label{font-size:20px;}
+.conferences ul li .label-success,.conferences ul li .label-danger{display:inline-block;width:75px;}
+.conferences ul li .name,.conferences ul li .speaker{font-size:18px;line-height:20px;vertical-align:middle;}
+.conferences ul li .name{font-weight:bold;margin-left:20px;}
+.conferences ul li .speaker{margin-right:20px;}
+.tooltip{font-size:16px;}
+@media screen and (min-width:768px){.row-search div{margin:0px;} .conferences{margin:0px;}}@media screen and (min-width:992px){.jumbotron p.link a{font-size:40px;}}

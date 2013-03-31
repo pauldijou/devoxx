@@ -2,24 +2,41 @@
 <div class="jumbotron">
   <h1>Rate your conf!</h1>
   <p>There is no control, no restriction, you can vote as many times as you want, but we trust you! So please, don't cheat too much.</p>
-  <p class="link">
+  <p class="link hidden-phone">
     <i class=" icon-dashboard icon-2x"></i>
     <a href="http://devoxx-pdi.rhcloud.com">http://devoxx-pdi.rhcloud.com</a>
   </p>
-  <p class="link">
+  <p class="link hidden-phone">
     <i class=" icon-github icon-2x"></i>
     <a href="https://github.com/pauldijou/devoxx">https://github.com/pauldijou/devoxx</a>
   </p>
 </div>
-<ul class="list-unstyled conferences">
-  <li data-ng-repeat="conf in data.conferences | orderBy:'-note':false">
-    <span class="label" data-ng-class="{true: 'label-success', false: 'label-danger'}[conf.note > 0]">{{conf.note}}</span>
 
-    <span class="name">{{conf.name}}</span>
-    <span class="speaker"> (by {{conf.speaker}})</span>
+<div class="row row-search">
+  <div class="col-span-12">
+    <h4>Filters:</h2>
+  </div>
+  <div class="col-span-4"><input type="text" placeholder="All" data-ng-model="data.search.$"/></div>
+  <div class="col-span-4"><input type="text" placeholder="Conference name" data-ng-model="data.search.name"/></div>
+  <div class="col-span-4"><input type="text" placeholder="Speaker(s)" data-ng-model="data.search.speaker"/></div>
+</div>
 
-    <button type="button" class="btn" data-ng-click="up(conf.id)"><i class="icon-plus"></i> Awesome!</button>
-    <button type="button" class="btn" data-ng-click="down(conf.id)"><i class="icon-minus"></i> Not so good...</button>
+<div class="conferences">
+  <h4>Conferences:</h4>
 
-  </li>
-</ul>
+  <ul class="list-unstyled conferences">
+    <li data-ng-repeat="conf in data.conferences | filter:data.search | orderBy:'-note':false">
+      <span class="label" data-ng-class="{true: 'label-success', false: 'label-danger'}[conf.note > 0]">{{conf.note}}</span>
+
+      <button type="button" class="btn" data-ng-click="up(conf.id)" tooltip-placement="top" tooltip="Awesome!">
+        <i class="icon-plus"></i>
+      </button>
+      <button type="button" class="btn" data-ng-click="down(conf.id)" tooltip-placement="top" tooltip="Not so good...">
+        <i class="icon-minus"></i>
+      </button>
+
+      <span class="name">{{conf.name}}</span>
+      <span class="speaker"> (by {{conf.speaker}})</span>
+    </li>
+  </ul>
+</div>
